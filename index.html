@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph Meta Tags for Link Preview -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Joechyn Irish @ 18">
   <meta property="og:description" content="Join us in celebrating a decade and eight! September 20, 2025, 4:00 PM at The President Hotel, Lingayen, Pangasinan">
   <meta property="og:image" content="https://i.imgur.com/icYBaca.jpg">
@@ -63,9 +63,8 @@
 <div id="inviteMessage">🎉 You're invited! See you at the party! 💖</div>
 
 <!-- Music -->
-<audio id="musicPlayer" loop>
+<audio id="musicPlayer" loop muted>
   <source src="https://mart39.github.io/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/Beauty-and-the-Beast.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
 </audio>
 
 <div id="imageModal">
@@ -101,11 +100,17 @@
   const countdownInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // Accept invite & play music
+  // Music autoplay attempt
   const music = document.getElementById('musicPlayer');
+  window.addEventListener('load', () => {
+    music.play().catch(()=>console.log("Autoplay blocked, waiting for user interaction..."));
+  });
+
+  // Accept invite & unmute music
   function acceptInvite() {
     document.getElementById('inviteMessage').style.display = 'block';
-    music.play().catch(() => console.log("User interaction required for music."));
+    music.muted = false;
+    music.play().catch(()=>console.log("User interaction required for music."));
   }
 
   // Image modal
@@ -116,9 +121,9 @@
 
   images.forEach(img => {
     img.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalImg.src = img.src;
-      modalImg.style.transform = 'scale(0.9)';
+      modal.style.display='flex';
+      modalImg.src=img.src;
+      modalImg.style.transform='scale(0.9)';
       setTimeout(()=>{modalImg.style.transform='scale(1)';},50);
     });
   });
