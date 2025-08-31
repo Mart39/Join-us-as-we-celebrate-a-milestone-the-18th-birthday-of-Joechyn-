@@ -64,8 +64,8 @@
 
 <button class="music-btn" onclick="playMusic()">Play Music 🎵</button>
 <audio id="musicPlayer" loop>
-  <source src="https://raw.githubusercontent.com/Mart39/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/main/ssvid.net---Beauty-and-the-Beast-Piano-Cover-by-Riyandi-Kusuma.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+  <!-- Use relative path if the mp3 is in the same folder as index.html -->
+  <source src="ssvid.net---Beauty-and-the-Beast-Piano-Cover-by-Riyandi-Kusuma.mp3" type="audio/mpeg">
 </audio>
 
 <div id="imageModal">
@@ -79,25 +79,20 @@
   // Countdown
   const eventDate = new Date("September 20, 2025 16:00:00").getTime();
   const countdownEl = document.getElementById("countdown");
-
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = eventDate - now;
-
     if (distance < 0) {
       countdownEl.innerHTML = "🎉 The party has started! 🎉";
       clearInterval(countdownInterval);
       return;
     }
-
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
     countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
-
   const countdownInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
 
@@ -106,10 +101,10 @@
     document.getElementById('inviteMessage').style.display = 'block';
   }
 
-  // Play music on click
+  // Play music
   const music = document.getElementById('musicPlayer');
   function playMusic() {
-    music.play();
+    music.play().catch(() => alert("Click allowed to play music."));
   }
 
   // Image modal
