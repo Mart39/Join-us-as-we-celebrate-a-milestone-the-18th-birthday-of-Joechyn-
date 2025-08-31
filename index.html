@@ -124,7 +124,6 @@
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
       margin-bottom: 10px;
     }
-
   </style>
 </head>
 <body>
@@ -151,8 +150,14 @@
   <p>🎉 You're invited! See you at the party! 💖</p>
 </div>
 
+<!-- Background Instrumental Music -->
+<audio id="musicPlayer" loop autoplay>
+  <source src="beauty-and-the-beast-instrumental.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 <script>
-  // Countdown
+  // Countdown Timer
   const eventDate = new Date("September 20, 2025 16:00:00").getTime();
   const countdownEl = document.getElementById("countdown");
 
@@ -181,6 +186,14 @@
   function acceptInvite() {
     document.getElementById("confirmation").style.display = "block";
   }
+
+  // Autoplay music (handle browser restrictions)
+  window.addEventListener('load', () => {
+    const music = document.getElementById('musicPlayer');
+    music.play().catch(() => {
+      console.log("Autoplay blocked by browser. Click anywhere to start music.");
+    });
+  });
 </script>
 
 </body>
