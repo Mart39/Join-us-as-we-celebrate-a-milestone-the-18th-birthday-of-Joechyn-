@@ -96,17 +96,24 @@
       border-radius: 10px;
     }
 
-    .invite-img {
+    /* Invite Button */
+    .invite-btn {
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
       display: inline-block;
       margin-top: 25px;
-      cursor: pointer;
+    }
+
+    .invite-btn img {
       border-radius: 30px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       width: 250px;
     }
 
-    .invite-img:hover {
+    .invite-btn img:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
@@ -119,6 +126,7 @@
       display: none;
     }
 
+    /* Modal */
     #imageModal {
       display: none;
       position: fixed;
@@ -196,11 +204,10 @@
   <img src="https://i.imgur.com/xw9w2et.jpg" alt="Image 7">
 </div>
 
-<!-- Clickable Invite Image -->
-<img src="https://i.imgur.com/yourImageLink.jpg" 
-     alt="Accept Invite" 
-     class="invite-img" 
-     onclick="acceptInvite()">
+<!-- Mobile-Friendly Accept Invite Button -->
+<button class="invite-btn" id="inviteBtn">
+  <img src="https://i.imgur.com/yourImageLink.jpg" alt="Accept Invite">
+</button>
 
 <p id="confirmation">🎉 You've accepted the invite! See you at the party! 💖</p>
 
@@ -242,12 +249,18 @@
   const countdownInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // Accept Invite & Play Music
+  // Accept Invite - Mobile-Friendly
+  const inviteBtn = document.getElementById('inviteBtn');
+  const confirmation = document.getElementById('confirmation');
+  const music = document.getElementById('musicPlayer');
+
   function acceptInvite() {
-    document.getElementById("confirmation").style.display = "block";
-    const music = document.getElementById('musicPlayer');
-    music.play().catch(() => console.log("Autoplay blocked by browser"));
+    confirmation.style.display = "block";
+    music.play().catch(() => console.log("Audio autoplay blocked"));
   }
+
+  inviteBtn.addEventListener('click', acceptInvite);
+  inviteBtn.addEventListener('touchend', acceptInvite);
 
   // Image modal
   const images = document.querySelectorAll('.scroll-container img');
