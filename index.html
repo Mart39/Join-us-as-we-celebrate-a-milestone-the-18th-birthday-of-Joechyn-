@@ -29,14 +29,13 @@
       color: #444;
     }
 
-    /* Countdown timer - simple soft background */
     #countdown {
       font-size: 2em;
       font-weight: bold;
       color: #6a0572;
       padding: 15px 30px;
       border-radius: 25px;
-      background: #f8e1f0; /* soft pastel background */
+      background: #f8e1f0;
       display: inline-block;
       margin: 15px 0;
     }
@@ -109,7 +108,6 @@
       display: none;
     }
 
-    /* Modal */
     #imageModal {
       display: none;
       position: fixed;
@@ -165,10 +163,6 @@
     #closeModal:hover {
       transform: scale(1.2);
     }
-
-    #musicPlayer {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -193,8 +187,9 @@
 <button class="invite-btn" onclick="acceptInvite()">Accept Invite</button>
 <p id="confirmation">🎉 You've accepted the invite! See you at the party! 💖</p>
 
-<audio id="musicPlayer" autoplay loop>
-  <source src="YOUR-BEAUTY-AND-THE-BEAST-INSTRUMENTAL.mp3" type="audio/mpeg">
+<audio id="musicPlayer" loop>
+  <source src="beauty-and-the-beast-instrumental.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
 </audio>
 
 <div id="imageModal">
@@ -205,53 +200,55 @@
 </div>
 
 <script>
-function acceptInvite() {
-  document.getElementById("confirmation").style.display = "block";
-}
+  // Countdown
+  const eventDate = new Date("September 20, 2025 16:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
 
-const eventDate = new Date("September 20, 2025 16:00:00").getTime();
-const countdownEl = document.getElementById("countdown");
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
+    if (distance < 0) {
+      countdownEl.innerHTML = "🎉 The party has started! 🎉";
+      clearInterval(countdownInterval);
+      return;
+    }
 
-  if (distance < 0) {
-    countdownEl.innerHTML = "🎉 The party has started! 🎉";
-    clearInterval(countdownInterval);
-    return;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
 
-  countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
+  // Accept Invite & Play Music
+  function acceptInvite() {
+    document.getElementById("confirmation").style.display = "block";
+    const music = document.getElementById('musicPlayer');
+    music.play().catch(() => console.log("Autoplay blocked by browser"));
+  }
 
-const countdownInterval = setInterval(updateCountdown, 1000);
-updateCountdown();
+  // Image modal
+  const images = document.querySelectorAll('.scroll-container img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const closeModal = document.getElementById('closeModal');
 
-const images = document.querySelectorAll('.scroll-container img');
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImg');
-const closeModal = document.getElementById('closeModal');
-
-images.forEach(img => {
-  img.addEventListener('click', () => {
-    modal.style.display = 'flex';
-    modalImg.src = img.src;
-    modalImg.style.transform = 'scale(0.9)';
-    setTimeout(() => { modalImg.style.transform = 'scale(1)'; }, 50);
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+      modalImg.style.transform = 'scale(0.9)';
+      setTimeout(() => { modalImg.style.transform = 'scale(1)'; }, 50);
+    });
   });
-});
 
-closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
-modal.addEventListener('click', (e) => { if (e.target === modal) { modal.style.display = 'none'; } });
-
-const music = document.getElementById('musicPlayer');
-music.play().catch(() => console.log("Autoplay blocked by browser"));
+  closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 </script>
 
 </body>
