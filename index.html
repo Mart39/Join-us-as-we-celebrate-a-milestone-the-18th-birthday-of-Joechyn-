@@ -96,22 +96,17 @@
       border-radius: 10px;
     }
 
-    .invite-btn {
+    .invite-img {
       display: inline-block;
       margin-top: 25px;
-      padding: 14px 28px;
-      background: linear-gradient(45deg, #ff6ec4, #7873f5);
-      color: #fff;
-      font-size: 1.2em;
-      font-weight: bold;
-      border: none;
-      border-radius: 30px;
       cursor: pointer;
+      border-radius: 30px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 250px;
     }
 
-    .invite-btn:hover {
+    .invite-img:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
@@ -201,8 +196,12 @@
   <img src="https://i.imgur.com/xw9w2et.jpg" alt="Image 7">
 </div>
 
+<!-- Clickable Invite Image -->
+<img src="https://i.imgur.com/yourImageLink.jpg" 
+     alt="Accept Invite" 
+     class="invite-img" 
+     onclick="acceptInvite()">
 
-<button class="invite-btn" onclick="acceptInvite()">Accept Invite</button>
 <p id="confirmation">🎉 You've accepted the invite! See you at the party! 💖</p>
 
 <audio id="musicPlayer" loop>
@@ -271,7 +270,3 @@
 
 </body>
 </html>
-
-
-
-
