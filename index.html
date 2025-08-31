@@ -28,8 +28,8 @@
     .scroll-container::-webkit-scrollbar { height: 10px; }
     .scroll-container::-webkit-scrollbar-thumb { background: linear-gradient(45deg, #ffb3c6, #c9a3ff); border-radius: 10px; }
     .scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.3); border-radius: 10px; }
-    .invite-btn { display: inline-block; margin-top: 25px; padding: 14px 28px; background: linear-gradient(45deg, #ff6ec4, #7873f5); color: #fff; font-size: 1.2em; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .invite-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    .invite-btn, .music-btn { display: inline-block; margin-top: 15px; padding: 14px 28px; background: linear-gradient(45deg, #ff6ec4, #7873f5); color: #fff; font-size: 1.2em; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .invite-btn:hover, .music-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
     #inviteMessage { display: none; margin-top: 20px; font-size: 1.3em; color: #6a0572; font-weight: bold; }
     #imageModal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
     .modal-content { background: linear-gradient(135deg, #ffffff, #f7e6f7); padding: 8px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); max-width: 600px; max-height: 400px; display: flex; justify-content: center; align-items: center; position: relative; }
@@ -61,6 +61,12 @@
 
 <button class="invite-btn" onclick="showInviteMessage()">Accept Invite</button>
 <div id="inviteMessage">🎉 You're invited! See you at the party! 💖</div>
+
+<button class="music-btn" onclick="playMusic()">Play Music 🎵</button>
+<audio id="musicPlayer" loop>
+  <source src="https://mart39.github.io/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/Beauty-and-the-Beast-Piano-Cover-by-Riyandi-Kusuma.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 <div id="imageModal">
   <div class="modal-content">
@@ -98,6 +104,12 @@
   // Show invite message
   function showInviteMessage() {
     document.getElementById('inviteMessage').style.display = 'block';
+  }
+
+  // Play music on click
+  const music = document.getElementById('musicPlayer');
+  function playMusic() {
+    music.play();
   }
 
   // Image modal
