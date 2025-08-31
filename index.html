@@ -8,13 +8,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph Tags for Link Preview -->
-  <meta property="og:title" content="Joechyn Irish @ 18">
-  <meta property="og:description" content="Join us in celebrating a decade and eight. September 20, 2025, 4:00 PM at The President Hotel, Lingayen, Pangasinan">
-  <meta property="og:image" content="https://i.imgur.com/icYBaca.jpg">
-  <meta property="og:url" content="https://mart39.github.io/joechyn-18/">
-  <meta property="og:type" content="website">
-
   <style>
     body {
       margin: 0;
@@ -24,174 +17,31 @@
       text-align: center;
     }
 
-    header {
-      padding: 40px 20px;
-    }
+    header { padding: 40px 20px; }
+    header h1 { font-size: 3em; font-weight: bold; color: #6a0572; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+    header .subtitle { font-family: 'Dancing Script', cursive; font-size: 1.8em; background: linear-gradient(90deg, #ff6ec4, #7873f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); margin: 10px 0; letter-spacing: 1px; }
+    header p { font-size: 1.2em; color: #444; }
 
-    header h1 {
-      font-size: 3em;
-      font-weight: bold;
-      color: #6a0572;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    }
+    #countdown { font-size: 2em; font-weight: bold; color: #6a0572; padding: 15px 30px; border-radius: 25px; background: #f8e1f0; display: inline-block; margin: 15px 0; }
 
-    header .subtitle {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.8em;
-      background: linear-gradient(90deg, #ff6ec4, #7873f5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-      margin: 10px 0;
-      letter-spacing: 1px;
-    }
+    .scroll-container { display: flex; gap: 15px; overflow-x: auto; padding: 20px; scroll-behavior: smooth; background: rgba(255, 255, 255, 0.2); border-radius: 20px; margin: 30px auto; max-width: 90%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .scroll-container img { height: 250px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.25); border: 5px solid #ffb3c6; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; cursor: pointer; }
+    .scroll-container img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: #c9a3ff; }
+    .scroll-container::-webkit-scrollbar { height: 10px; }
+    .scroll-container::-webkit-scrollbar-thumb { background: linear-gradient(45deg, #ffb3c6, #c9a3ff); border-radius: 10px; }
+    .scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.3); border-radius: 10px; }
 
-    header p {
-      font-size: 1.2em;
-      color: #444;
-    }
+    .invite-btn { display: inline-block; margin-top: 25px; padding: 14px 28px; background: linear-gradient(45deg, #ff6ec4, #7873f5); color: #fff; font-size: 1.2em; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .invite-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
 
-    #countdown {
-      font-size: 2em;
-      font-weight: bold;
-      color: #6a0572;
-      padding: 15px 30px;
-      border-radius: 25px;
-      background: #f8e1f0;
-      display: inline-block;
-      margin: 15px 0;
-    }
+    #inviteMessage { display: none; margin-top: 20px; font-size: 1.3em; color: #6a0572; font-weight: bold; }
 
-    .scroll-container {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      padding: 20px;
-      scroll-behavior: smooth;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      margin: 30px auto;
-      max-width: 90%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .scroll-container img {
-      height: 250px;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-      border: 5px solid #ffb3c6;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .scroll-container img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      border-color: #c9a3ff;
-    }
-
-    .scroll-container::-webkit-scrollbar {
-      height: 10px;
-    }
-    .scroll-container::-webkit-scrollbar-thumb {
-      background: linear-gradient(45deg, #ffb3c6, #c9a3ff);
-      border-radius: 10px;
-    }
-    .scroll-container::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.3);
-      border-radius: 10px;
-    }
-
-    .invite-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: linear-gradient(45deg, #ff6ec4, #7873f5);
-      color: #fff;
-      font-size: 1.2em;
-      font-weight: bold;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .invite-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    }
-
-    #confirmation {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #6a0572;
-      font-weight: bold;
-    }
-
-    #confirmation img {
-      max-width: 300px;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      margin-bottom: 10px;
-    }
-
-    #imageModal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .modal-content {
-      background: linear-gradient(135deg, #ffffff, #f7e6f7);
-      padding: 8px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      max-width: 600px;
-      max-height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .modal-content img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 10px;
-      transform: scale(0.9);
-      transition: transform 0.3s ease;
-    }
-
-    .modal-content img:hover {
-      transform: scale(1.02);
-    }
-
-    #closeModal {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      color: #6a0572;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-      transition: transform 0.2s ease;
-    }
-
-    #closeModal:hover {
-      transform: scale(1.2);
-    }
+    #imageModal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+    .modal-content { background: linear-gradient(135deg, #ffffff, #f7e6f7); padding: 8px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); max-width: 600px; max-height: 400px; display: flex; justify-content: center; align-items: center; position: relative; }
+    .modal-content img { max-width: 100%; max-height: 100%; border-radius: 10px; transform: scale(0.9); transition: transform 0.3s ease; }
+    .modal-content img:hover { transform: scale(1.02); }
+    #closeModal { position: absolute; top: 5px; right: 10px; color: #6a0572; font-size: 30px; font-weight: bold; cursor: pointer; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); transition: transform 0.2s ease; }
+    #closeModal:hover { transform: scale(1.2); }
   </style>
 </head>
 <body>
@@ -215,13 +65,9 @@
 </div>
 
 <button class="invite-btn" onclick="acceptInvite()">Accept Invite</button>
+<div id="inviteMessage">🎉 You're invited! See you at the party! 💖</div>
 
-<div id="confirmation">
-  <img src="https://i.imgur.com/icYBaca.jpg" alt="You're Invited!">
-  <p>🎉 You're invited! See you at the party! 💖</p>
-</div>
-
-<audio id="musicPlayer" loop autoplay muted>
+<audio id="musicPlayer" loop>
   <source src="beauty-and-the-beast-instrumental.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
@@ -237,37 +83,30 @@
   // Countdown
   const eventDate = new Date("September 20, 2025 16:00:00").getTime();
   const countdownEl = document.getElementById("countdown");
-
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = eventDate - now;
-
     if (distance < 0) {
       countdownEl.innerHTML = "🎉 The party has started! 🎉";
       clearInterval(countdownInterval);
       return;
     }
-
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
     countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
-
   const countdownInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // Autoplay music
-  window.addEventListener('load', () => {
-    const music = document.getElementById('musicPlayer');
-    music.play().then(() => { music.muted = false; }).catch(() => { console.log("Autoplay blocked"); });
-  });
+  // Music and Invite
+  const music = document.getElementById('musicPlayer');
+  const inviteMessage = document.getElementById('inviteMessage');
 
-  // Accept Invite
   function acceptInvite() {
-    document.getElementById("confirmation").style.display = "block";
+    inviteMessage.style.display = 'block';
+    music.play().catch(() => alert("Click anywhere to allow music to play."));
   }
 
   // Image modal
