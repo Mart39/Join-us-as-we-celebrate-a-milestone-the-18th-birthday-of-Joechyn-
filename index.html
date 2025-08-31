@@ -28,7 +28,6 @@
       text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
 
-    /* Styled Subtitle */
     header .subtitle {
       font-family: 'Dancing Script', cursive;
       font-size: 1.8em;
@@ -96,24 +95,22 @@
       border-radius: 10px;
     }
 
-    /* Invite Button */
     .invite-btn {
-      border: none;
-      background: none;
-      padding: 0;
-      cursor: pointer;
       display: inline-block;
       margin-top: 25px;
-    }
-
-    .invite-btn img {
+      padding: 14px 28px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: none;
       border-radius: 30px;
+      cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      width: 250px;
     }
 
-    .invite-btn img:hover {
+    .invite-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
@@ -126,7 +123,6 @@
       display: none;
     }
 
-    /* Modal */
     #imageModal {
       display: none;
       position: fixed;
@@ -204,14 +200,10 @@
   <img src="https://i.imgur.com/xw9w2et.jpg" alt="Image 7">
 </div>
 
-<!-- Mobile-Friendly Accept Invite Button -->
-<button class="invite-btn" id="inviteBtn">
-  <img src="https://i.imgur.com/yourImageLink.jpg" alt="Accept Invite">
-</button>
-
+<button class="invite-btn" onclick="acceptInvite()">Accept Invite</button>
 <p id="confirmation">🎉 You've accepted the invite! See you at the party! 💖</p>
 
-<audio id="musicPlayer" loop>
+<audio id="musicPlayer" loop autoplay muted>
   <source src="beauty-and-the-beast-instrumental.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
@@ -249,18 +241,20 @@
   const countdownInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // Accept Invite - Mobile-Friendly
-  const inviteBtn = document.getElementById('inviteBtn');
-  const confirmation = document.getElementById('confirmation');
-  const music = document.getElementById('musicPlayer');
+  // Autoplay music on page load
+  window.addEventListener('load', () => {
+    const music = document.getElementById('musicPlayer');
+    music.play().then(() => {
+      music.muted = false; // unmute if allowed
+    }).catch(() => {
+      console.log("Autoplay blocked by browser");
+    });
+  });
 
+  // Accept Invite
   function acceptInvite() {
-    confirmation.style.display = "block";
-    music.play().catch(() => console.log("Audio autoplay blocked"));
+    document.getElementById("confirmation").style.display = "block";
   }
-
-  inviteBtn.addEventListener('click', acceptInvite);
-  inviteBtn.addEventListener('touchend', acceptInvite);
 
   // Image modal
   const images = document.querySelectorAll('.scroll-container img');
