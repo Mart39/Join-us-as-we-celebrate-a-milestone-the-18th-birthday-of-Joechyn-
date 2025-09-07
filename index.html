@@ -5,60 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joechyn Irish @ 18</title>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
   <!-- Open Graph Meta Tags for Link Preview -->
   <meta property="og:title" content="Joechyn Irish @ 18">
   <meta property="og:description" content="Join us in celebrating a decade and eight! September 20, 2025, 4:00 PM at The President Hotel, Lingayen, Pangasinan">
-  <meta property="og:image" content="https://raw.githubusercontent.com/Mart39/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/main/ChatGPT%20Image%20Sep%207%2C%202025%2C%2006_47_38%20PM.png">
-  <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/Mart39/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/main/ChatGPT%20Image%20Sep%207%2C%202025%2C%2006_47_38%20PM.png">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image" content="https://i.imgur.com/icYBaca.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://mart39.github.io/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/">
   <meta property="og:type" content="website">
-  <meta property="fb:app_id" content="1234567890"> <!-- Added to remove warning -->
+  <meta property="fb:app_id" content="1234567890"> <!-- Dummy App ID, replace if you have real one -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Joechyn Irish @ 18">
   <meta name="twitter:description" content="Join us in celebrating a decade and eight! September 20, 2025, 4:00 PM at The President Hotel, Lingayen, Pangasinan">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/Mart39/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/main/ChatGPT%20Image%20Sep%207%2C%202025%2C%2006_47_38%20PM.png">
+  <meta name="twitter:image" content="https://i.imgur.com/icYBaca.jpg">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      background: #fdf6f9;
-    }
-    .container {
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      color: #d63384;
-    }
-    p {
-      font-size: 1.2em;
-      color: #555;
-    }
-    .invite-image {
-      margin-top: 20px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    }
+    body { margin: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(to right, #ffdde1, #ee9ca7); color: #333; text-align: center; }
+    header { padding: 40px 20px; }
+    header h1 { font-size: 3em; font-weight: bold; color: #6a0572; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+    header .subtitle { font-family: 'Dancing Script', cursive; font-size: 1.8em; background: linear-gradient(90deg, #ff6ec4, #7873f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); margin: 10px 0; letter-spacing: 1px; }
+    header p { font-size: 1.2em; color: #444; }
+    #countdown { font-size: 2em; font-weight: bold; color: #6a0572; padding: 15px 30px; border-radius: 25px; background: #f8e1f0; display: inline-block; margin: 15px 0; }
+    .scroll-container { display: flex; gap: 15px; overflow-x: auto; padding: 20px; scroll-behavior: smooth; background: rgba(255, 255, 255, 0.2); border-radius: 20px; margin: 30px auto; max-width: 90%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .scroll-container img { height: 250px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.25); border: 5px solid #ffb3c6; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; cursor: pointer; }
+    .scroll-container img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: #c9a3ff; }
+    .scroll-container::-webkit-scrollbar { height: 10px; }
+    .scroll-container::-webkit-scrollbar-thumb { background: linear-gradient(45deg, #ffb3c6, #c9a3ff); border-radius: 10px; }
+    .scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.3); border-radius: 10px; }
+    .invite-btn { display: inline-block; margin-top: 25px; padding: 14px 28px; background: linear-gradient(45deg, #ff6ec4, #7873f5); color: #fff; font-size: 1.2em; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .invite-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    #inviteMessage { display: none; margin-top: 20px; font-size: 1.3em; color: #6a0572; font-weight: bold; }
+    #imageModal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+    .modal-content { background: linear-gradient(135deg, #ffffff, #f7e6f7); padding: 8px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); max-width: 600px; max-height: 400px; display: flex; justify-content: center; align-items: center; position: relative; }
+    .modal-content img { max-width: 100%; max-height: 100%; border-radius: 10px; transform: scale(0.9); transition: transform 0.3s ease; }
+    .modal-content img:hover { transform: scale(1.02); }
+    #closeModal { position: absolute; top: 5px; right: 10px; color: #6a0572; font-size: 30px; font-weight: bold; cursor: pointer; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); transition: transform 0.2s ease; }
+    #closeModal:hover { transform: scale(1.2); }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Joechyn Irish @ 18</h1>
-    <p>Join us in celebrating a decade and eight!</p>
-    <p><strong>Date:</strong> September 20, 2025</p>
-    <p><strong>Time:</strong> 4:00 PM</p>
-    <p><strong>Venue:</strong> The President Hotel, Lingayen, Pangasinan</p>
-    <img src="https://raw.githubusercontent.com/Mart39/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/main/ChatGPT%20Image%20Sep%207%2C%202025%2C%2006_47_38%20PM.png" alt="Invitation Image" class="invite-image">
+
+<header>
+  <h1>Joechyn Irish @ 18</h1>
+  <p class="subtitle">Join us in celebrating a decade and eight</p>
+  <p><strong>Date:</strong> September 20, 2025 &nbsp; | &nbsp; <strong>Time:</strong> 4:00 PM</p>
+  <p><strong>Venue:</strong> The President Hotel, Maramba Boulevard, Lingayen, Pangasinan</p>
+  <div id="countdown"></div>
+</header>
+
+<div class="scroll-container">
+  <img src="https://i.imgur.com/icYBaca.jpg" alt="Image 1">
+  <img src="https://i.imgur.com/qRxY43g.jpg" alt="Image 2">
+  <img src="https://i.imgur.com/kvYbQee.jpg" alt="Image 3">
+  <img src="https://i.imgur.com/g3HkgoA.jpg" alt="Image 4">
+  <img src="https://i.imgur.com/JLHSWo7.jpg" alt="Image 5"> 
+  <img src="https://i.imgur.com/f7ijtLn.jpg" alt="Image 6">
+  <img src="https://i.imgur.com/xw9w2et.jpg" alt="Image 7">
+</div>
+
+<button class="invite-btn" onclick="acceptInvite()">Accept Invite</button>
+<div id="inviteMessage">🎉 You're invited! See you at the party! 💖</div>
+
+<audio id="musicPlayer" loop>
+  <source src="https://raw.githubusercontent.com/Mart39/Join-us-as-we-celebrate-a-milestone-the-18th-birthday-of-Joechyn-/main/ssvid.net---Beauty-and-the-Beast-Piano-Cover-by-Riyandi-Kusuma.mp3" type="audio/mpeg">
+</audio>
+
+<div id="imageModal">
+  <div class="modal-content">
+    <span id="closeModal">&times;</span>
+    <img id="modalImg" src="">
   </div>
+</div>
+
+<script>
+  // Countdown
+  const eventDate = new Date("September 20, 2025 16:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    if (distance < 0) {
+      countdownEl.innerHTML = "🎉 The party has started! 🎉";
+      clearInterval(countdownInterval);
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Accept Invite + play music
+  const music = document.getElementById('musicPlayer');
+  function acceptInvite() {
+    document.getElementById('inviteMessage').style.display = 'block';
+    music.play().catch(() => console.log("Click allowed to play music."));
+  }
+
+  // Image modal
+  const images = document.querySelectorAll('.scroll-container img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const closeModal = document.getElementById('closeModal');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+      modalImg.style.transform = 'scale(0.9)';
+      setTimeout(() => { modalImg.style.transform = 'scale(1)'; }, 50);
+    });
+  });
+
+  closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+</script>
+
 </body>
 </html>
