@@ -1,151 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Required Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joechyn Irish @ 18</title>
 
-  <style>
-    /* Animated Gradient Background */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(-45deg, #ffdde1, #ee9ca7, #c9a3ff, #f8e1f0);
-      background-size: 400% 400%;
-      animation: gradientBG 10s ease infinite;
-      color: #333;
-      text-align: center;
-      overflow: hidden;
-    }
-    @keyframes gradientBG {
-      0% {background-position:0% 50%}
-      50% {background-position:100% 50%}
-      100% {background-position:0% 50%}
-    }
+  <!-- Title & Description -->
+  <title>Your Website Title</title>
+  <meta name="description" content="This is the meta description of your website.">
 
-    h1 { font-size: 3em; color: #6a0572; text-shadow: 2px 2px 5px #fff; }
-    .subtitle { font-size: 1.5em; color: #444; font-style: italic; }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Your Website Title">
+  <meta property="og:description" content="This is the meta description of your website.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourwebsite.com/">
+  <meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
 
-    /* Countdown with Glow */
-    #countdown {
-      font-size: 2em;
-      font-weight: bold;
-      color: #fff;
-      padding: 15px 30px;
-      border-radius: 25px;
-      background: linear-gradient(45deg, #6a0572, #ff6ec4);
-      display: inline-block;
-      margin: 20px 0;
-      text-shadow: 0 0 10px #fff, 0 0 20px #ff6ec4, 0 0 30px #7873f5;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { transform: scale(1);}
-      50% { transform: scale(1.1);}
-    }
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Website Title">
+  <meta name="twitter:description" content="This is the meta description of your website.">
+  <meta name="twitter:image" content="https://yourwebsite.com/og-image.jpg">
 
-    /* Invite button */
-    .invite-btn {
-      padding: 14px 28px;
-      background: linear-gradient(45deg, #ff6ec4, #7873f5);
-      color: #fff;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
-    }
-    .invite-btn:hover { transform: scale(1.1); }
-
-    #inviteMessage { display: none; font-size: 1.5em; color: #fff; margin-top: 20px; }
-
-    /* Floating Balloons */
-    .balloon {
-      position: fixed;
-      bottom: -150px;
-      width: 60px; height: 80px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff, var(--color));
-      animation: floatUp 10s linear infinite;
-      opacity: 0.9;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0) scale(1); opacity: 0.9;}
-      100% { transform: translateY(-120vh) scale(1.2); opacity: 0;}
-    }
-
-    /* Fireworks */
-    .firework {
-      position: fixed;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: yellow;
-      animation: explode 1s ease-out forwards;
-    }
-    @keyframes explode {
-      from { transform: scale(1); opacity:1;}
-      to { transform: scale(20); opacity:0;}
-    }
-  </style>
+  <!-- Favicon (Optional) -->
+  <link rel="icon" href="https://yourwebsite.com/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
-  <h1>Joechyn Irish @ 18</h1>
-  <p class="subtitle">Join us in celebrating a decade and eight</p>
-  <div id="countdown"></div>
-
-  <button class="invite-btn" onclick="acceptInvite()">Accept Invite</button>
-  <div id="inviteMessage">🎉 You're invited! See you at the party! 💖</div>
-
-  <!-- Balloons -->
-  <div class="balloon" style="--color:#ff6ec4; left:10%; animation-delay:0s;"></div>
-  <div class="balloon" style="--color:#f9a825; left:30%; animation-delay:2s;"></div>
-  <div class="balloon" style="--color:#00bcd4; left:50%; animation-delay:4s;"></div>
-  <div class="balloon" style="--color:#8e24aa; left:70%; animation-delay:6s;"></div>
-  <div class="balloon" style="--color:#43a047; left:90%; animation-delay:8s;"></div>
-
-<script>
-  // Countdown
-  const eventDate = new Date("September 20, 2025 16:00:00").getTime();
-  const countdownEl = document.getElementById("countdown");
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-    if (distance < 0) {
-      countdownEl.innerHTML = "🎉 The party has started!";
-      clearInterval(countdownInterval);
-      return;
-    }
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance%(1000*60))/1000);
-    countdownEl.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }
-  const countdownInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // Invite + Fireworks
-  function acceptInvite() {
-    document.getElementById('inviteMessage').style.display = 'block';
-    launchFireworks();
-  }
-
-  function launchFireworks() {
-    for (let i=0; i<15; i++) {
-      let fw = document.createElement("div");
-      fw.className = "firework";
-      fw.style.left = Math.random()*100 + "vw";
-      fw.style.top = Math.random()*100 + "vh";
-      fw.style.background = ["#ff4081","#ffeb3b","#00e676","#2979ff"][Math.floor(Math.random()*4)];
-      document.body.appendChild(fw);
-      setTimeout(()=>fw.remove(), 1000);
-    }
-  }
-</script>
-
+  <h1>OG Tags Test Page - Design 18</h1>
+  <p>This page is set up with clean Open Graph and Twitter meta tags for link previews.</p>
 </body>
 </html>
